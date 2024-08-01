@@ -64,10 +64,9 @@ workflow {
     pack_out(QC.out.plots, GWAS.out)
     // Show results location
     in_aws = params.aws
-    out_files_list = pack_out.out.collect{params.aws? "s3:/${it}" : "${it}"}
-    out_files = out_files_list
+    out_files = pack_out.out.collect{params.aws? "s3:/${it}" : "${it}"}.map{it.join("\n")}.map{"Results are available at: " + it.toString()}
     workflow.onComplete {
-        println("Results are available at:${out_files}")
+        println out_files.val
     }
     publish:
         pack_out.out >> "."
