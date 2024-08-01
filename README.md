@@ -51,5 +51,10 @@ Building the AWS architecture can be divided in 3 areas
 4. Run `view-manhattan results/regenie/`, where `results/regenie` is the location of the regenie files. The directory of the regenie files will be created when uncompressing `results.tar.gz`
 5. Open a web browser at [127.0.0.1:8050](http://127.0.0.1:8050) to see the interactive report.
 
+## Output
+The file `results.tar.gz` contains the results of the anlaysis. After decompression, it has two directories, `plots` and `regenie`. 
+- The `plots` directory contains plots from the QC step whenever they result relevant (not empty). The naming convention is `<population-name>_<metric>.svg`, where `metric` is one of `maf`, `_sample_missingness`, and `_variant_missingness`.
+- The `regenie` directory contains all logs and regenie outputs. The `view-manhattan` tool is used to visualise the ouptut. The naming convention is `regenie2_<population>_<chromosome>_<phenotype>.regenie`
+
 ## Containers
 Following best-practices, this pipeline uses Docker to run all its jobs. For this small pipeline, it is using only one container, but that can be modified. Given that the pipeline can run in two environments (local and AWS), two container registries have been setup (dockerhub, and AWS ECR). It is possible to run the pipeline in AWS using dockerhub containers. However, I want to showcase how to run it from ECR, as it is more performant, and allows us to run pipeline with private containers without the need to handle more credentials (e.g. Dockerhub).
