@@ -28,7 +28,7 @@ The following parameters are optional (default values are presented in [square b
 - sample_missing [0.01]: Sample missingess fraction
 - maf [0.05]: Minor allele frequency threshold
 - hwe [1e-15]: Herdy-Weimberg equilibrium P-value threshold. (Set to 1 to deactivate)
-- min_vars [100]: Minimum number of variants per chromosome
+- min_vars [100]: Minimum number of variants per chromosome. Variant sets with less variants, will not be visualised.
 
 This pipeline can be conveniently executed with default parameters and input files, by using one of the following profiles
 - local: Runs the pipeline in the current computer
