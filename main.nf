@@ -63,12 +63,13 @@ workflow {
     // Organize ouptut
     pack_out(QC.out.plots, GWAS.out)
     // Show results location
-    if (params.aws) {
-        pack_out.out.view{"Results location: s3:/${it}"}
-    } else {
-        pack_out.out.view{"Results location: ${it}"}
+    workflow.onComplete {
+        if (params.aws) {
+            println("Results location: s3:/${pack_out.out}")
+        } else {
+            println("Results location: ${pack_out.out}")
+        }
     }
-
     publish:
         pack_out.out >> "."
 }
