@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+# This script builds and pushes the container necessary to run the
+# pipeline to a Docker Hub repository and an AWS ECR repository.
 set -e
 
 # Base variables
