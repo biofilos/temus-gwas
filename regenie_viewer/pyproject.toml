@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "view-manhattan"
+version = "0.1.0"
+description = "Dash application to visualise Regenie Manhattan plots from several runs"
+authors = ["Juan Felipe Ortiz <juan@biosilico.io>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.2"
+dash-bio = "^1.0.2"
+dash = "^2.17.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+view-manhattan = "view_manhattan.cli:main"
